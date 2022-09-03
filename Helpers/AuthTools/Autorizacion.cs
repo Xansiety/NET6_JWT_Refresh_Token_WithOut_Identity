@@ -9,6 +9,6 @@
             Empleado
         }
 
-        public const AuthorizationRoles rol_predeterminado = AuthorizationRoles.Empleado;
+        public const AuthorizationRoles rol_predeterminado = AuthorizationRoles.Admin;
     }
 }
