@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using NET6_WEB_API_TEMPLATE_JWT; 
+using NET6_WEB_API_TEMPLATE_JWT;
+using NET6_WEB_API_TEMPLATE_JWT.Middlewares;
 using Serilog; //Serilog.AspNetCore Package
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+//MiddleWare para manejo de excepciones de forma global
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseStatusCodePagesWithReExecute("/errors/{0}");//lamamos a un controlador  //nos permite generar paginas de error personalizadas cuando ocurre un error 
+
+
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())

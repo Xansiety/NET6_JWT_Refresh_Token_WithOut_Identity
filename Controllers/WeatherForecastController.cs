@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using NET6_WEB_API_TEMPLATE_JWT.Helpers.Errors;
 
 namespace NET6_WEB_API_TEMPLATE_JWT.Controllers
 {
@@ -19,8 +20,11 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public ActionResult<IEnumerable<WeatherForecast>> Get()
         {
+            //return NotFound(new ResponseAPI(404, "El producto solicitado no existe."));
+            //exception response
+            //throw new Exception("Excepción no controlada"); 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
