@@ -7,7 +7,8 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Services.Interfaces
     {
         Task<Usuario> GetByRefreshTokenAsync(string refreshToken);
         Task<Usuario> GetByUserNameAsync(string username);
-        Task<string> RegisterAsync(RegisterDTO registerDto);
+        Task<string> RegisterAsync(RegisterDTO registerDto); 
+        Task revokeRefreshToken();
         Task<Usuario> ValidateUserAync(UserCredentials userCredentials);
     }
 }

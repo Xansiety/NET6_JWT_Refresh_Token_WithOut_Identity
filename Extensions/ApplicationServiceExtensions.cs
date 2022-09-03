@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using NET6_WEB_API_TEMPLATE_JWT.Entities.User;
 using NET6_WEB_API_TEMPLATE_JWT.Helpers.AuthTools;
 using NET6_WEB_API_TEMPLATE_JWT.Services.Interfaces;
 using NET6_WEB_API_TEMPLATE_JWT.Services.Repository;
@@ -27,8 +29,8 @@ public static class ApplicationServiceExtensions
         //services.AddScoped<ICategoriaRepository, CategoriaRepository>();
         //services.AddScoped<IMarcaRepository, MarcaRepository>();
         //services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
-        services.AddTransient<ITokenService, TokenService>();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<ITokenService, TokenService>();
     }
 
     //JWT 
@@ -45,7 +47,7 @@ public static class ApplicationServiceExtensions
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
-            //configuramos la información del token
+            //configuramos la informacion del token
             .AddJwtBearer(opt =>
             {
                 opt.RequireHttpsMetadata = false; //definimos si necesitamos una conexión https //e prod se debe pasar a true

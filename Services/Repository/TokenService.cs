@@ -50,7 +50,9 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Services.Repository
             JwtSecurityToken jwtSecurityToken = CreateJwtToken(usuario); //creamos el token 
             datosUsuarioDto.AccessToken = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
             datosUsuarioDto.DisplayName = usuario.Email;
-            //datosUsuarioDto.Roles = usuario.Roles
+            datosUsuarioDto.Roles = usuario.Roles
+                                             .Select(u => u.Nombre)
+                                             .ToList(); //arreglo de roles
 
 
             //lógica para refresh Token
@@ -97,13 +99,13 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Services.Repository
               new Claim("uid", usuario.Id.ToString())
             }.Union(roleClaims); //unimos los roles
 
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.SecretKey));
+            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:SecretKey"]));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
             var jwtSecurityToken = new JwtSecurityToken(
-                issuer: _jwt.Issuer,
-                audience: _jwt.Audience,
+                issuer: configuration["JwtSettings:Issuer"],
+                audience: configuration["JwtSettings:Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(_jwt.DurationInMinutes)),
+                expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(configuration["JwtSettings:DurationInMinutes"])),
                 signingCredentials: signingCredentials);
 
             return jwtSecurityToken;
@@ -158,6 +160,9 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Services.Repository
             JwtSecurityToken jwtSecurityToken = CreateJwtToken(usuario);
             datosUsuarioDto.AccessToken = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
             datosUsuarioDto.DisplayName = usuario.Email;
+            datosUsuarioDto.Roles = usuario.Roles
+                                            .Select(u => u.Nombre)
+                                            .ToList(); //arreglo de roles
             datosUsuarioDto.RefreshToken = newRefreshToken.RefreshToken;
             datosUsuarioDto.RefreshTokenExpiration = newRefreshToken.ExpireTimeRefreshToken;
 

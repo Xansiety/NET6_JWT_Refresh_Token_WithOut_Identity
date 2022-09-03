@@ -22,6 +22,7 @@ builder.Logging.AddSerilog(logger: logger);
 builder.Services.ConfigureCors();
 //Dependency Injection
 builder.Services.AddAplicationServices();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();
 
