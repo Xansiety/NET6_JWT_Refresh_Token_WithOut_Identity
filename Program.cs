@@ -19,10 +19,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 //SERILOG ->LOGGER
 builder.Logging.AddSerilog(logger: logger);
 // CORS
-builder.Services.ConfigureCors(); 
-
+builder.Services.ConfigureCors();
+//Dependency Injection
+builder.Services.AddAplicationServices();
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -31,13 +33,12 @@ var app = builder.Build();
 //MiddleWare para manejo de excepciones de forma global
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseStatusCodePagesWithReExecute("/errors/{0}");//lamamos a un controlador  //nos permite generar paginas de error personalizadas cuando ocurre un error 
-
-
+ 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-app.UseSwagger();
-app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 //}
 
 app.UseCors("CorsPolicy");
