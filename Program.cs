@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NET6_WEB_API_TEMPLATE_JWT;
+using NET6_WEB_API_TEMPLATE_JWT.Extensions;
 using NET6_WEB_API_TEMPLATE_JWT.Middlewares;
 using Serilog; //Serilog.AspNetCore Package
 
@@ -17,6 +18,8 @@ var logger = new LoggerConfiguration()
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 //SERILOG ->LOGGER
 builder.Logging.AddSerilog(logger: logger);
+// CORS
+builder.Services.ConfigureCors(); 
 
 
 builder.Services.AddControllers();
@@ -30,13 +33,14 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.UseStatusCodePagesWithReExecute("/errors/{0}");//lamamos a un controlador  //nos permite generar paginas de error personalizadas cuando ocurre un error 
 
 
-
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
 app.UseSwagger();
 app.UseSwaggerUI();
 //}
+
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
