@@ -17,7 +17,7 @@ public class ApplicationDbContext : DbContext
     }
 
     //ENTITIES ON DB
-    public DbSet<Usuario> Users { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Rol> Roles { get; set; } 
 
 }

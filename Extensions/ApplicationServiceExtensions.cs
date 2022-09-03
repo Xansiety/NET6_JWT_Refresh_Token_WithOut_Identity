@@ -27,8 +27,8 @@ public static class ApplicationServiceExtensions
         //services.AddScoped<ICategoriaRepository, CategoriaRepository>();
         //services.AddScoped<IMarcaRepository, MarcaRepository>();
         //services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
-        services.AddScoped<IUserService, UserService>();
         services.AddTransient<ITokenService, TokenService>();
+        services.AddScoped<IUserService, UserService>();
     }
 
     //JWT 

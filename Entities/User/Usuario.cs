@@ -22,4 +22,7 @@ public class Usuario
     //clase relaciones
     //public ICollection<RefreshToken> RefreshTokens { get; set; } = new HashSet<RefreshToken>();
     public ICollection<UsuariosRoles> UsuariosRoles { get; set; }
+
+    public bool Activo { get; set; } = true;
+    public DateTime Created { get; set; }
 }
