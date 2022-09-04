@@ -17,10 +17,13 @@ public static class ApplicationServiceExtensions
         {
             options.AddPolicy("CorsPolicy", builder =>
             builder
-            .WithOrigins("*")
+            .WithOrigins("http://127.0.0.1:5173","*")
             //.AllowAnyOrigin() //
-            .AllowAnyMethod() // WithMethods("Get,Post")
-            .AllowAnyHeader()); //WithHeaders("accept", "content-type")
+            .AllowAnyMethod() // With Methods("Get,Post")
+            .AllowAnyHeader()
+            .AllowCredentials()
+            ); //WithHeaders("accept", "content-type")
+
         });
 
     // Implementación de dependencias

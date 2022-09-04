@@ -54,7 +54,7 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Controllers
             {
                 _logger.LogError(ex.ToString());
                 return Ok(ex);
-            } 
+            }
         }
 
 
@@ -74,18 +74,23 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Controllers
         public async Task<IActionResult> RevokeToken()
         {
             var refreshToken = Request.Cookies["refreshToken"];
-            await userService.revokeRefreshToken(); 
+            await userService.revokeRefreshToken();
             return Ok();
         }
 
 
         //asignamos el refresh token en mi cookie de solo http
         private void SetRefreshTokenInCookie(string refreshToken)
-        {
+        {  
             var cookieOptions = new CookieOptions
             {
+                SameSite = SameSiteMode.None,
+                Domain = null,
+                IsEssential = true,
                 HttpOnly = true,
                 Expires = DateTime.UtcNow.AddDays(7),
+                Path = "/",
+                Secure = true
             };
             Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
         }

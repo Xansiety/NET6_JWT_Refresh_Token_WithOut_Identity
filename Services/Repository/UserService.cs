@@ -105,7 +105,7 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Services.Repository
         {
             return await _context.Usuarios
                 .Include(u => u.Roles) 
-                .FirstOrDefaultAsync(u => u.RefreshToken != null);
+                .FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
         }
 
         public async Task<Usuario> GetByUserNameAsync(string username)
