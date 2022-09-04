@@ -22,6 +22,9 @@ builder.Logging.AddSerilog(logger: logger);
 builder.Services.ConfigureCors();
 //Dependency Injection
 builder.Services.AddAplicationServices();
+// JWT
+builder.Services.AddJwt(configuration: builder.Configuration);
+// HTTP HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();
@@ -29,6 +32,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 
 var app = builder.Build();
 //MiddleWare para manejo de excepciones de forma global
@@ -46,6 +51,7 @@ app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
