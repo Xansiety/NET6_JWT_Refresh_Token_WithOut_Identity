@@ -1,23 +1,23 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using NET6_WEB_API_TEMPLATE_JWT.Entities.User;
-using NET6_WEB_API_TEMPLATE_JWT.Helpers.AuthTools;
-using NET6_WEB_API_TEMPLATE_JWT.Services.Interfaces;
-using NET6_WEB_API_TEMPLATE_JWT.Services.Repository;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Helpers.AuthTools;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Services.Interfaces;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Services.Repository;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Entities.User;
 using System.Text;
 
-namespace NET6_WEB_API_TEMPLATE_JWT.Extensions;
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.Extensions;
 
 public static class ApplicationServiceExtensions
-{ 
+{
     //CORS
     public static void ConfigureCors(this IServiceCollection services) =>
         services.AddCors(options =>
         {
             options.AddPolicy("CorsPolicy", builder =>
             builder
-            .WithOrigins("http://127.0.0.1:5173","*")
+            .WithOrigins("http://127.0.0.1:5173", "*")
             //.AllowAnyOrigin() //
             .AllowAnyMethod() // With Methods("Get,Post")
             .AllowAnyHeader()

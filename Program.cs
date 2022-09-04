@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using NET6_WEB_API_TEMPLATE_JWT;
-using NET6_WEB_API_TEMPLATE_JWT.Extensions;
-using NET6_WEB_API_TEMPLATE_JWT.Middlewares;
+using NET6_JWT_Refresh_Token_WithOut_Identity;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Extensions;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Middlewares;
 using Serilog; //Serilog.AspNetCore Package
 
 var builder = WebApplication.CreateBuilder(args);

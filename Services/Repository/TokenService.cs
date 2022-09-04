@@ -1,15 +1,15 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using NET6_WEB_API_TEMPLATE_JWT.DTOs;
-using NET6_WEB_API_TEMPLATE_JWT.Entities.User;
-using NET6_WEB_API_TEMPLATE_JWT.Helpers.AuthTools;
-using NET6_WEB_API_TEMPLATE_JWT.Services.Interfaces;
+using NET6_JWT_Refresh_Token_WithOut_Identity.DTOs;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Entities.User;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Helpers.AuthTools;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Services.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace NET6_WEB_API_TEMPLATE_JWT.Services.Repository
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.Services.Repository
 {
     public class TokenService : ITokenService
     {
@@ -37,7 +37,7 @@ namespace NET6_WEB_API_TEMPLATE_JWT.Services.Repository
         {
             ResponseAuth datosUsuarioDto = new ResponseAuth();
             //validamos al usuario en la base de datos
-            var usuario = await userService.ValidateUserAync(model);  
+            var usuario = await userService.ValidateUserAync(model);
 
             if (usuario == null)
             {

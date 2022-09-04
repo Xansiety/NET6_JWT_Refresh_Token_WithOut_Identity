@@ -1,4 +1,4 @@
-﻿namespace NET6_WEB_API_TEMPLATE_JWT.Entities.User;
+﻿namespace NET6_JWT_Refresh_Token_WithOut_Identity.Entities.User;
 public class Usuario
 {
     public int Id { get; set; }
@@ -9,14 +9,14 @@ public class Usuario
     public string Email { get; set; }
     public string EmailNormalized { get; set; }
     public string Password { get; set; }
-     
+
     //RefreshToken
     public string RefreshToken { get; set; }
     public DateTime? ExpireTimeRefreshToken { get; set; }
-    public DateTime? CreatedRefreshToken { get; set; } 
+    public DateTime? CreatedRefreshToken { get; set; }
     public bool IsExpiredRefreshToken => DateTime.UtcNow >= ExpireTimeRefreshToken;
     public bool IsActiveRefreshToken => RefreshToken != null && !IsExpiredRefreshToken;
-     
+
     //relación
     public ICollection<Rol> Roles { get; set; } = new HashSet<Rol>();
     //clase relaciones

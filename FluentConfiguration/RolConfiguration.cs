@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NET6_WEB_API_TEMPLATE_JWT.Entities.User;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Entities.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET6_WEB_API_TEMPLATE_JWT.FluentConfiguration
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.FluentConfiguration
 {
     public class RolConfiguration : IEntityTypeConfiguration<Rol>
     {

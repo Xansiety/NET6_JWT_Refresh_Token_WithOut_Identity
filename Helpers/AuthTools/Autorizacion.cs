@@ -1,4 +1,4 @@
-﻿namespace NET6_WEB_API_TEMPLATE_JWT.Helpers.AuthTools
+﻿namespace NET6_JWT_Refresh_Token_WithOut_Identity.Helpers.AuthTools
 {
     public class Autorizacion
     {

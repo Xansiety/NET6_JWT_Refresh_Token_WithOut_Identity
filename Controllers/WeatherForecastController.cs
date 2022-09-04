@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NET6_JWT_Refresh_Token_WithOut_Identity;
 
-namespace NET6_WEB_API_TEMPLATE_JWT.Controllers
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.Controllers
 {
     [ApiController]
     [Route("[controller]")]

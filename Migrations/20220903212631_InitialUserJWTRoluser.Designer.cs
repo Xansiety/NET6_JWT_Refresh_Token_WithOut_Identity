@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NET6_WEB_API_TEMPLATE_JWT;
+using NET6_JWT_Refresh_Token_WithOut_Identity;
 
 #nullable disable
 

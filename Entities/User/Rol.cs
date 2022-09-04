@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NET6_WEB_API_TEMPLATE_JWT.Entities.User;
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.Entities.User;
 public class Rol
-{ 
+{
     public int Id { get; set; }
     public string Nombre { get; set; }
     public bool Activo { get; set; }

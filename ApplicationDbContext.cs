@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NET6_WEB_API_TEMPLATE_JWT.Entities.User;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Entities.User;
 using System.Reflection;
 
-namespace NET6_WEB_API_TEMPLATE_JWT;
+namespace NET6_JWT_Refresh_Token_WithOut_Identity;
 public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions options) : base(options)
     {
 
-    } 
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("TI"); //SCHEMA CREATE
@@ -18,6 +18,6 @@ public class ApplicationDbContext : DbContext
 
     //ENTITIES ON DB
     public DbSet<Usuario> Usuarios { get; set; }
-    public DbSet<Rol> Roles { get; set; } 
+    public DbSet<Rol> Roles { get; set; }
 
 }

@@ -1,6 +1,6 @@
-﻿using NET6_WEB_API_TEMPLATE_JWT.DTOs;
+﻿using NET6_JWT_Refresh_Token_WithOut_Identity.DTOs;
 
-namespace NET6_WEB_API_TEMPLATE_JWT.Services.Interfaces
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.Services.Interfaces
 {
     public interface ITokenService
     {

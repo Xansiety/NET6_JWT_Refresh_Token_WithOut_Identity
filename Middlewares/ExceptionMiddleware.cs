@@ -1,8 +1,8 @@
-﻿using NET6_WEB_API_TEMPLATE_JWT.Helpers.Errors;
+﻿using NET6_JWT_Refresh_Token_WithOut_Identity.Helpers.Errors;
 using System.Net;
 using System.Text.Json;
 
-namespace NET6_WEB_API_TEMPLATE_JWT.Middlewares;
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.Middlewares;
 
 public class ExceptionMiddleware
 {

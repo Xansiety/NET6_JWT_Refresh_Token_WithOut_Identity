@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace NET6_WEB_API_TEMPLATE_JWT.DTOs;
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.DTOs;
 
 public class ResponseAuth
 {

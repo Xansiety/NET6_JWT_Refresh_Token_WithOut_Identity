@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NET6_WEB_API_TEMPLATE_JWT.Entities.User;
-namespace NET6_WEB_API_TEMPLATE_JWT.FluentConfiguration;
+using NET6_JWT_Refresh_Token_WithOut_Identity.Entities.User;
+
+namespace NET6_JWT_Refresh_Token_WithOut_Identity.FluentConfiguration;
 
 public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
 {

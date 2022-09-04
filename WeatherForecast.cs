@@ -1,4 +1,4 @@
-namespace NET6_WEB_API_TEMPLATE_JWT
+namespace NET6_JWT_Refresh_Token_WithOut_Identity
 {
     public class WeatherForecast
     {
